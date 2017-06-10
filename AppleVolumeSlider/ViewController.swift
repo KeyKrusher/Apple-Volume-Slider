@@ -9,10 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    // MARK: Outlets
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var price: UILabel!
+    // MARK: Function to update the price label
+    func priceUpdate() {
+        price.text = "$\(slider.value)"
+    }
+    // MARK: Where the magic happens
+    @IBAction func sliderIsDragged(_ sender: UISlider) {
+        priceUpdate()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        price.text = "$\(slider.value)"
     }
 
     override func didReceiveMemoryWarning() {
